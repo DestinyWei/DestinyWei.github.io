@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hyperledger Fabric 安装部署及测试网络汇总 | 浩烬的博客</title><meta name="keywords" content="区块链"><meta name="author" content="浩烬"><meta name="copyright" content="浩烬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="先放上官方的学习文档，永远相信官方文档是最好最新的！！！入门 — hyperledger-fabricdocs master 文档 环境准备环境搭建大部分可参考下篇文章 搭建Hyperledger Fabric环境 的详细步骤，超级详细_FAFU_kyp的博客-CSDN博客 但要注意的是：文章中的go语言版本比较老，有可能会出问题，所以可以自行去官网查看最新版本在去改一下命令即可！（目前最新版本为">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ENS Domains Product Design Analyses | 浩烬的博客</title><meta name="keywords" content="DID"><meta name="author" content="浩烬"><meta name="copyright" content="浩烬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ENS Domains Product Design Analyses 官方文档链接：Introduction - ENS Documentation  Github链接：ensdomains&#x2F;ens-contracts  整体项目现状与前景： Web3 域名统治者：一文全览 ENS 现状与前景 - Foresight News  DNS文档名词解释   Domain：域名   Subd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hyperledger Fabric 安装部署及测试网络汇总">
+<meta property="og:title" content="ENS Domains Product Design Analyses">
 <meta property="og:url" content="https://destinywei.github.io/post/BlockChainNote.html">
 <meta property="og:site_name" content="浩烬的博客">
-<meta property="og:description" content="先放上官方的学习文档，永远相信官方文档是最好最新的！！！入门 — hyperledger-fabricdocs master 文档 环境准备环境搭建大部分可参考下篇文章 搭建Hyperledger Fabric环境 的详细步骤，超级详细_FAFU_kyp的博客-CSDN博客 但要注意的是：文章中的go语言版本比较老，有可能会出问题，所以可以自行去官网查看最新版本在去改一下命令即可！（目前最新版本为">
+<meta property="og:description" content="ENS Domains Product Design Analyses 官方文档链接：Introduction - ENS Documentation  Github链接：ensdomains&#x2F;ens-contracts  整体项目现状与前景： Web3 域名统治者：一文全览 ENS 现状与前景 - Foresight News  DNS文档名词解释   Domain：域名   Subd">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/HyperledgerFabric.png">
-<meta property="article:published_time" content="2022-10-27T14:06:13.033Z">
-<meta property="article:modified_time" content="2023-04-10T08:45:14.916Z">
+<meta property="og:image" content="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/ENS.png">
+<meta property="article:published_time" content="2023-04-10T08:36:58.292Z">
+<meta property="article:modified_time" content="2023-04-10T15:09:04.007Z">
 <meta property="article:author" content="浩烬">
-<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="DID">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/HyperledgerFabric.png"><link rel="shortcut icon" href="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg"><link rel="canonical" href="https://destinywei.github.io/post/BlockChainNote"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/ENS.png"><link rel="shortcut icon" href="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg"><link rel="canonical" href="https://destinywei.github.io/post/BlockChainNote"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -48,12 +48,12 @@
   islazyload: false,
   isAnchor: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Hyperledger Fabric 安装部署及测试网络汇总',
+  title: 'ENS Domains Product Design Analyses',
   isPost: true,
   isHome: false,
   isHighlightShrink: true,
   isToc: true,
-  postUpdate: '2023-04-10 16:45:14'
+  postUpdate: '2023-04-10 23:09:04'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -180,36 +180,1257 @@
         window.addEventListener('load',endLoading);
     </script>
 
-<div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/HyperledgerFabric.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">浩烬的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hyperledger Fabric 安装部署及测试网络汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-27T14:06:13.033Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-10T08:45:14.916Z" title="更新于 2023-04-10 16:45:14">2023-04-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">758</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hyperledger Fabric 安装部署及测试网络汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="先放上官方的学习文档，永远相信官方文档是最好最新的！！！"><a href="#先放上官方的学习文档，永远相信官方文档是最好最新的！！！" class="headerlink" title="先放上官方的学习文档，永远相信官方文档是最好最新的！！！"></a>先放上官方的学习文档，永远相信官方文档是最好最新的！！！</h3><p><a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/zh_CN/latest/getting_started.html">入门 — hyperledger-fabricdocs master 文档</a></p>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>环境搭建大部分可参考下篇文章</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/djklsajdklsajdlk/article/details/125581900?spm=1001.2014.3001.5502">搭建Hyperledger Fabric环境 的详细步骤，超级详细_FAFU_kyp的博客-CSDN博客</a></p>
-<p><strong>但要注意的是：文章中的go语言版本比较老，有可能会出问题，所以可以自行去官网查看最新版本在去改一下命令即可！（目前最新版本为1.18.4）</strong></p>
-<p>同时我们在下载一样东西之后，最好先执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-
-<p>更新一下索引，以免出错，然后再接着下载下一个</p>
-<p>有关docker的权限问题，可以参考这篇文章</p>
-<blockquote>
-<p>Got permission denied while trying to connect to the Docker daemon socket at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock: Get “http:&#x2F;&#x2F;%2Fvar%2Frun%2Fdocker.sock&#x2F;v1.24&#x2F;images&#x2F;json”: dial unix &#x2F;var&#x2F;run&#x2F;docker.sock: connect: permission denied</p>
-</blockquote>
-<p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43972154/article/details/123873175">Linux] docker 出现Got permission denied while trying to connect to the Docker daemon socket…问题的解决办法_Cloudeeeee的博客-CSDN博客</a></p>
-<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p><a target="_blank" rel="noopener" href="https://hyperledger-fabric.readthedocs.io/zh_CN/latest/install.html">安装示例、二进制和 Docker 镜像 — hyperledger-fabricdocs master 文档</a></p>
-<p>下载过程中，同时会去拉取镜像，这一步很容易出问题，如拉取少了，抑或是网络无法连接等等……可参考下面的内容</p>
-<p>问题一：拉取少了</p>
-<p><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/a7ad8e01356144d7b57293630f3a76c8.png"></p>
-<p><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/1f83ec82c8d64fb4baa64262502314b7.png"></p>
-<p><strong>原因：</strong>因为官方的sh文件存在版本号相关的问题，因此镜像的下载会缺少几个重要的文件，这个时候需要我们自己去拉取缺少的镜像。</p>
-<p><strong>解决方案 ：</strong> 对比上面的截图，缺什么就拉取什么。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker pull hyperledger/fabric-ca:版本</span><br><span class="line">docker pull hyperledger/fabric-orderer:版本</span><br><span class="line">docker pull hyperledger/fabric-peer:版本</span><br><span class="line">docker pull hyperledger/fabric-ccenv:版本</span><br><span class="line">docker pull hyperledger/fabric-tools:版本</span><br><span class="line">docker pull hyperledger/fabric-baseos:版本</span><br><span class="line">docker pull hyperledger/fabric-kafka:版本</span><br><span class="line">docker pull hyperledger/fabric-zookeeper:版本</span><br><span class="line">docker pull hyperledger/fabric-couchdb:版本</span><br></pre></td></tr></table></figure>
-
-<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
-<p> <strong>注意：这里需要注意上面内容分别给出了1.x版本 2.x版本的镜像 大家按需自取。正常来说按官方文档来的话都是齐全的，个人建议尽量还是不要去看网络文章。</strong></p>
-<p>问题二：网络问题</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jiang13537/p/15571504.html">ubuntu 20.04 下安装使用clash for windows （最简单版本） - jjjzzzqqq - 博客园 (cnblogs.com)</a></p>
-<p>如果虚拟机中下载安装包过于缓慢，可以通过使用共享文件夹的方式解决，参考下面的文章</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460471813">宿主机win10与虚拟机ubuntu之间的文件传输方法 - 知乎 (zhihu.com)</a></p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>最开始自己也是跟着网络文章进行操作，但是一直没有成功过，报了各种错误，来来回回，最后回到了官方文档，结果一次就成，还是挺惊喜的。所以也说明了，只有官方文档才是最权威最新的，好多网络文章一看发布时间，都已经是好几年前的了，报的错误也都是那些错误，但是跟着做也一直解决不了，害。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://DestinyWei.github.io">浩烬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://destinywei.github.io/post/BlockChainNote.html">https://destinywei.github.io/post/BlockChainNote.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://DestinyWei.github.io" target="_blank">浩烬的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></div><div class="post_share"><div class="social-share" data-image="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/HyperledgerFabric.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Introduction.html"><img class="prev-cover" src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/default-cover1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">写给各位看官老爷</div></div></a></div><div class="next-post pull-right"><a href="/post/ActivityNote.html"><img class="next-cover" src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Activity工作流</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">浩烬</div><div class="author-info__description">坚持就是胜利</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/DestinyWei"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/DestinyWei" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1342348280@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的Blog频道，若有疑问，请联系我的QQ：1342348280</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E6%94%BE%E4%B8%8A%E5%AE%98%E6%96%B9%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3%EF%BC%8C%E6%B0%B8%E8%BF%9C%E7%9B%B8%E4%BF%A1%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%98%AF%E6%9C%80%E5%A5%BD%E6%9C%80%E6%96%B0%E7%9A%84%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">先放上官方的学习文档，永远相信官方文档是最好最新的！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/BlockChainNote.html" title="北京大学肖臻老师《区块链技术与应用》公开课"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/区块链.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="北京大学肖臻老师《区块链技术与应用》公开课"/></a><div class="content"><a class="title" href="/post/BlockChainNote.html" title="北京大学肖臻老师《区块链技术与应用》公开课">北京大学肖臻老师《区块链技术与应用》公开课</a><time datetime="2022-10-27T14:06:13.063Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/solidity%E8%BF%9B%E9%98%B6.html" title="Solidity学习笔记(二)"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Solidity进阶.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Solidity学习笔记(二)"/></a><div class="content"><a class="title" href="/post/solidity%E8%BF%9B%E9%98%B6.html" title="Solidity学习笔记(二)">Solidity学习笔记(二)</a><time datetime="2022-10-27T14:06:13.056Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Solidity%E5%85%A5%E9%97%A8.html" title="Solidity学习笔记(一)"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Solidity入门.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Solidity学习笔记(一)"/></a><div class="content"><a class="title" href="/post/Solidity%E5%85%A5%E9%97%A8.html" title="Solidity学习笔记(一)">Solidity学习笔记(一)</a><time datetime="2022-10-27T14:06:13.052Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%E7%A0%B4%E8%A7%A3.html" title="有道翻译简单爬虫破解"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/blog-picture.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有道翻译简单爬虫破解"/></a><div class="content"><a class="title" href="/post/%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%E7%A0%B4%E8%A7%A3.html" title="有道翻译简单爬虫破解">有道翻译简单爬虫破解</a><time datetime="2022-10-27T14:06:13.049Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Mysql%E7%AC%94%E8%AE%B0.html" title="Mysql笔记"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Mysql.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mysql笔记"/></a><div class="content"><a class="title" href="/post/Mysql%E7%AC%94%E8%AE%B0.html" title="Mysql笔记">Mysql笔记</a><time datetime="2022-10-27T14:06:13.044Z" title="发表于 2022-10-27 22:06:13">2022-10-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/HyperledgerFabric.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 <i id="heartbeat" class="fa fas fa-heartbeat"></i>  浩烬</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>! <div> <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo2.png" width="30px" height="15px" /> 提供CDN加速/云存储服务</a> </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+<div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/ENS.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">浩烬的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ENS Domains Product Design Analyses</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-10T08:36:58.292Z" title="发表于 2023-04-10 16:36:58">2023-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-10T15:09:04.007Z" title="更新于 2023-04-10 23:09:04">2023-04-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>54分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ENS Domains Product Design Analyses"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ENS-Domains-Product-Design-Analyses"><a href="#ENS-Domains-Product-Design-Analyses" class="headerlink" title="ENS Domains Product Design Analyses"></a>ENS Domains Product Design Analyses</h1><ul>
+<li><p>官方文档链接：<a target="_blank" rel="noopener" href="https://docs.ens.domains/">Introduction - ENS Documentation</a></p>
+</li>
+<li><p>Github链接：<a target="_blank" rel="noopener" href="https://github.com/ensdomains/ens-contracts">ensdomains&#x2F;ens-contracts</a></p>
+</li>
+<li><p>整体项目现状与前景： <a target="_blank" rel="noopener" href="https://foresightnews.pro/article/detail/28280">Web3 域名统治者：一文全览 ENS 现状与前景 - Foresight News</a></p>
+</li>
+<li><p>DNS文档名词解释</p>
+<p>  Domain：域名</p>
+<p>  Subdomain：子域名</p>
+<p>  registrars：管理域名的智能合约</p>
+<p>  resolver：解析器，负责将名称转换为地址</p>
+<p>  Name：ENS的标识符，如“alice.eth”，由多个部分组成，称为labels，由 . 进行分隔</p>
+<p>  Controller：可以编辑Name的账户地址，可以由注册者和Controller改变</p>
+<p>  Label：Name中的一个单独部分，如“alice”</p>
+<p>  Labelhash：Label 的哈希值</p>
+<p>  Registry：注册表，一个记录所有的domain和subdomains的三个属性(domain的拥有者、domain的解析器、domain下的所有记录的有效时间)的智能合约</p>
+<p>  Registrar：注册员，一个拥有域名的简单智能合约，可向符合规则的用户发布其拥有域名的子域名</p>
+<p>  Registration：注册，这是Registrar下关于Name的拥有者的一条记录，不同于注册表，该记录还记录有额外的信息如过期时间，花费的费用等</p>
+<p>  Registrant：注册者，Registration的拥有者，注册者可以转移该Registration的所有权、设置Controller、如果需要可在注册表中回收该Name的所有权</p>
+</li>
+<li><p>合约词语解释</p>
+<p>  bytes32 node — 管理域名的地址</p>
+<p>  bytes32 label — 子域名的hash</p>
+<p>  address owner — 域名拥有者	</p>
+<p>  address resolver — 解析器地址</p>
+<p>  uint64 ttl — 有效时间</p>
+<p>  uint256 contentTypes — 可被caller接受的ABI格式的按位或计算</p>
+<p>  uint256 contentType — ABI的内容格式</p>
+</li>
+<li><p>项目目录及合约 （该合约目录截止2013年3月份，合约内容截止2013年1月份）</p>
+<ul>
+<li><p>dnsregistrar</p>
+<p>  关于DNS解析的相关合约，个人觉得其目前解决思路比较难懂，故先不解释，待后续能力提升再重新补</p>
+</li>
+<li><p>dnssec-oracle</p>
+<p>  关于DNS的预言机的相关知识较为薄弱，故留着后面能力提升之后再重新补</p>
+</li>
+<li><p>ethregistrar</p>
+<ul>
+<li>mock<ul>
+<li>DummyProxyRegistry.sol 虚拟代理注册合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address target;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor(address _target) public &#123;</span><br><span class="line">    target = _target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function proxies(address a) external view returns (address)</code> 返回target</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>IBaseRegistrar.sol 基础注册员接口规范</strong><ul>
+<li>event<ul>
+<li><code>event ControllerAdded(address indexed controller);</code> controller 添加</li>
+<li><code>event ControllerRemoved(address indexed controller);</code> controller 删除</li>
+<li><code>event NameMigrated(uint256 indexed id, address indexed owner, uint256 expires);</code> name转移</li>
+<li><code>event NameRegistered(uint256 indexed id, address indexed owner, uint256 expires);</code> name注册</li>
+<li><code>event NameRenewed(uint256 indexed id, uint256 expires);</code> name更新</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function addController(address controller) external;</code> 添加controller</li>
+<li><code>function removeController(address controller) external;</code> 删除controller</li>
+<li><code>function setResolver(address resolver) external;</code> 设置解析器</li>
+<li><code>function nameExpires(uint256 id) external view returns (uint256);</code> 返回指定labelhash的过期时间戳</li>
+<li><code>function available(uint256 id) external view returns (bool);</code> 返回指定name是否可以注册</li>
+<li><code>function register(uint256 id, address owner, uint256 duration) external returns (uint256);</code> 注册name</li>
+<li><code>function renew(uint256 id, uint256 duration) external returns (uint256);</code> 更新name的过期时间</li>
+<li><code>function reclaim(uint256 id, address owner) external;</code> 收回某个name的所有权，如果调用者拥有该name的话</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>BaseRegistrarImplementation.sol  继承实现ERC721、IBaseRegistrar、Ownable的基础注册员合约</strong><ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// A map of expiry times.</span><br><span class="line">// tokenId =&gt; timestamp</span><br><span class="line">mapping(uint256 =&gt; uint256) expiries;</span><br><span class="line">// ENS合约地址</span><br><span class="line">ENS public ens;</span><br><span class="line">// 该registrar拥有的TLD的namehash (eg, .eth)</span><br><span class="line">bytes32 public baseNode;</span><br><span class="line">// 被授权注册和更新names的controller地址</span><br><span class="line">// controller =&gt; 是否被授权</span><br><span class="line">mapping(address =&gt; bool) public controllers;</span><br><span class="line">// 宽限期</span><br><span class="line">uint256 public constant GRACE_PERIOD= 90 days;</span><br><span class="line">// 接口元Id</span><br><span class="line">bytes4 private constant INTERFACE_META_ID=</span><br><span class="line">    bytes4(keccak256(&quot;supportsInterface(bytes4)&quot;));</span><br><span class="line">// ERC721Id</span><br><span class="line">bytes4 private constant ERC721_ID=</span><br><span class="line">    bytes4(</span><br><span class="line">        keccak256(&quot;balanceOf(address)&quot;) ^</span><br><span class="line">            keccak256(&quot;ownerOf(uint256)&quot;) ^</span><br><span class="line">            keccak256(&quot;approve(address,uint256)&quot;) ^</span><br><span class="line">            keccak256(&quot;getApproved(uint256)&quot;) ^</span><br><span class="line">            keccak256(&quot;setApprovalForAll(address,bool)&quot;) ^</span><br><span class="line">            keccak256(&quot;isApprovedForAll(address,address)&quot;) ^</span><br><span class="line">            keccak256(&quot;transferFrom(address,address,uint256)&quot;) ^</span><br><span class="line">            keccak256(&quot;safeTransferFrom(address,address,uint256)&quot;) ^</span><br><span class="line">            keccak256(&quot;safeTransferFrom(address,address,uint256,bytes)&quot;)</span><br><span class="line">    );</span><br><span class="line">// 回收Id</span><br><span class="line">bytes4 private constant RECLAIM_ID=</span><br><span class="line">    bytes4(keccak256(&quot;reclaim(uint256,address)&quot;));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+<p>  初始化ENS合约地址和TLD的namehash</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS _ens, bytes32 _baseNode) ERC721(&quot;&quot;, &quot;&quot;) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">    baseNode = _baseNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier live()</code> TLD的namehash拥有者是否为被调用的合约的地址</li>
+<li><code>modifier onlyController()</code> 是否为被授权的controller地址</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function _isApprovedOrOwner(address spender, uint256 tokenId) internal view override returns (bool)</code> 调用者是否被授权于给定的tokenId，是其所有者授权的操作者，还是该tokenId 的拥有者</li>
+<li><code>function ownerOf(uint256 tokenId) public view override(IERC721, ERC721) returns (address)</code> 返回给定tokenId的拥有者，若该tokenId已过期则没有拥有者</li>
+<li><code>function addController(address controller) external override onlyOwner</code> 添加 controller</li>
+<li><code>function removeController(address controller) external override onlyOwner</code> 删除 controller</li>
+<li><code>function setResolver(address resolver) external override onlyOwner</code> 设置解析器</li>
+<li><code>function nameExpires(uint256 id) external view override returns (uint256)</code> 返回指定id的过期时间戳</li>
+<li><code>function available(uint256 id) public view override returns (bool)</code> 返回指定id是否可以注册</li>
+<li><code>function register(uint256 id, address owner, uint256 duration) external override returns (uint256)</code> 注册一个name，并修改注册表</li>
+<li><code>function registerOnly(uint256 id, address owner, uint256 duration) external returns (uint256)</code> 注册一个name，但不修改注册表</li>
+<li><code>function _register(uint256 id, address owner, uint256 duration, bool updateRegistry) internal live onlyController returns (uint256)</code> 注册name以及是否修改注册表</li>
+<li><code>function renew(uint256 id, uint256 duration) external override live onlyController returns (uint256)</code> 更新name的过期时间</li>
+<li><code>function reclaim(uint256 id, address owner) external override live</code> 收回某个name的所有权，如果调用者拥有该name的话</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view override(ERC721, IERC165) returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IBulkRenewal.sol 批量续订接口规范<ul>
+<li>function<ul>
+<li><code>function rentPrice(string[] calldata names, uint256 duration) external view returns (uint256 total);</code> 返回租用names列表中所有name duration时长的费用</li>
+<li><code>function renewAll(string[] calldata names, uint256 duration) external payable</code>names列表中的所有name续订duration时长</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BulkRenewal.sol 继承实现IBulkRenewal的合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// ETH 的 namehash</span><br><span class="line">bytes32 private constant ETH_NAMEHASH=</span><br><span class="line">    0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;</span><br><span class="line">// ENS 的合约地址</span><br><span class="line">ENS public immutable ens;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS _ens) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function getController() internal view returns (ETHRegistrarController)</code> 获取ETH的注册controller地址</li>
+<li><code>function rentPrice(string[] calldata names, uint256 duration) external view override returns (uint256 total)</code> 返回租用names列表中所有name duration时长的费用</li>
+<li><code>function renewAll(string[] calldata names, uint256 duration) external payable override</code> names列表中的所有name续订duration时长</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DummyOracle.sol 虚拟的预言机合约<ul>
+<li><p>data struct</p>
+<ul>
+<li><code>int256 value;</code> value值</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<p>  初始化value值</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor(int256 _value) public &#123;</span><br><span class="line">    set(_value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function set(int256 _value) public</code> 设置value值</li>
+<li><code>function latestAnswer() public view returns (int256)</code> 返回value值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IETHRegistrarController.sol ETH注册管理controller接口规范<ul>
+<li>function<ul>
+<li><code>function rentPrice(string memory, uint256) external view returns (IPriceOracle.Price memory);</code> 返回注册的价格</li>
+<li><code>function available(string memory) external returns (bool);</code> 判断name是否合法且可被注册</li>
+<li><code>function makeCommitment(string memory, address, uint256, bytes32, address, bytes[] calldata, bool, uint16) external pure returns (bytes32);</code> 做出承诺</li>
+<li><code>function commit(bytes32) external;</code> 更新承诺的时间为当前时间戳</li>
+<li><code>function register(string calldata, address, uint256, bytes32, address, bytes[] calldata, bool, uint16) external payable;</code> 注册</li>
+<li><code>function renew(string calldata, uint256) external payable;</code> 续订</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ETHRegistrarController.sol 继承实现IETHRegistrarController、ERC20Recoverable的合约</strong><ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 最小注册时间-28天</span><br><span class="line">uint256 public constantMIN_REGISTRATION_DURATION= 28 days;</span><br><span class="line">// ETH节点地址</span><br><span class="line">bytes32 private constantETH_NODE=</span><br><span class="line">    0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;</span><br><span class="line">// 最长到期时间</span><br><span class="line">uint64 private constantMAX_EXPIRY= type(uint64).max;</span><br><span class="line">// 基础注册员合约</span><br><span class="line">BaseRegistrarImplementation immutable base;</span><br><span class="line">// 价格预言机合约</span><br><span class="line">IPriceOracle public immutable prices;</span><br><span class="line">// 最短/最长承诺持续时间</span><br><span class="line">// 确保承诺不会被短时间内频繁更改,若长时间未更改,则无法调用_consumeCommitment(register时需调用到)</span><br><span class="line">uint256 public immutable minCommitmentAge;</span><br><span class="line">uint256 public immutable maxCommitmentAge;</span><br><span class="line">// 逆向注册合约</span><br><span class="line">ReverseRegistrar public immutable reverseRegistrar;</span><br><span class="line">INameWrapper public immutable nameWrapper;</span><br><span class="line">// commitment =&gt; timestamp(做出承诺时的时间戳)</span><br><span class="line">mapping(bytes32 =&gt; uint256) public commitments;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event NameRegistered(string name, bytes32 indexed label, address indexed owner, uint256 baseCost, uint256 premium, uint256 expires);</code> 注册名称</li>
+<li><code>event NameRenewed(string name, bytes32 indexed label, uint256 cost, uint256 expires);</code> 名称续订</li>
+</ul>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    BaseRegistrarImplementation _base,</span><br><span class="line">    IPriceOracle _prices,</span><br><span class="line">    uint256 _minCommitmentAge,</span><br><span class="line">    uint256 _maxCommitmentAge,</span><br><span class="line">    ReverseRegistrar _reverseRegistrar,</span><br><span class="line">    INameWrapper _nameWrapper</span><br><span class="line">) &#123;</span><br><span class="line">		// 确保最大/最小承诺时间的正确性</span><br><span class="line">    if (_maxCommitmentAge &lt;= _minCommitmentAge) &#123;</span><br><span class="line">        revert MaxCommitmentAgeTooLow();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (_maxCommitmentAge &gt; block.timestamp) &#123;</span><br><span class="line">        revert MaxCommitmentAgeTooHigh();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    base = _base;</span><br><span class="line">    prices = _prices;</span><br><span class="line">    minCommitmentAge = _minCommitmentAge;</span><br><span class="line">    maxCommitmentAge = _maxCommitmentAge;</span><br><span class="line">    reverseRegistrar = _reverseRegistrar;</span><br><span class="line">    nameWrapper = _nameWrapper;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function rentPrice(string memory name, uint256 duration) public view override returns (IPriceOracle.Price memory price)</code> 返回注册的价格</li>
+<li><code>function valid(string memory name) public pure returns (bool)</code> 判断要注册的name长度是否大于3位</li>
+<li><code>function available(string memory name) public view override returns (bool)</code> 判断name是否合法且可被注册</li>
+<li><code>function makeCommitment(string memory name, address owner, uint256 duration, bytes32 secret, address resolver, bytes[] calldata data, bool reverseRecord, uint16 ownerControlledFuses) public pure override returns (bytes32)</code> 做出承诺<br><strong>(个人对这个承诺的理解为web2.0中，淘宝购买物品时点击购买但未付款，超出15分钟后该交易便会自动关闭取消)</strong></li>
+<li><code>function commit(bytes32 commitment) public override</code> 更新承诺的时间为当前时间戳</li>
+<li><code>function register(string calldata name, address owner, uint256 duration, bytes32 secret, address resolver, bytes[] calldata data, bool reverseRecord, uint16 ownerControlledFuses) public payable override</code> 注册name</li>
+<li><code>function renew(string calldata name, uint256 duration) external payable override</code> 续订</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> ERC165</li>
+<li><code>function _consumeCommitment(string memory name, uint256 duration, bytes32 commitment) internal</code> 消费承诺<br><strong>(这里的消费承诺则对应上面的做出承诺，当我们在规定时间付款时，即可成功注册name，否则只能重新发起注册请求)</strong></li>
+<li><code>function _setRecords(address resolverAddress, bytes32 label, bytes[] calldata data) internal</code> 设置解析记录</li>
+<li><code>function _setReverseRecord(string memory name, address resolver, address owner) internal</code> 设置逆向解析记录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPriceOracle.sol 价格预言机接口规范<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct Price &#123;</span><br><span class="line">    uint256 base; // 基础价格</span><br><span class="line">    uint256 premium; // 保险费</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function price(string calldata name, uint256 expires, uint256 duration) external view returns (Price calldata);</code> 返回注册或续订名称的价格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>StablePriceOracle.sol 继承实现的IPriceOracle稳定价格预言机合约(以美元来定价)<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 按长度以基本价格单位出租</span><br><span class="line">uint256 public immutable price1Letter;</span><br><span class="line">uint256 public immutable price2Letter;</span><br><span class="line">uint256 public immutable price3Letter;</span><br><span class="line">uint256 public immutable price4Letter;</span><br><span class="line">uint256 public immutable price5Letter;</span><br><span class="line"></span><br><span class="line">// 预言机地址</span><br><span class="line">AggregatorInterface public immutable usdOracle;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event RentPriceChanged(uint256[] prices);</code> 租金价格改变</li>
+</ul>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">constructor(AggregatorInterface _usdOracle, uint256[] memory _rentPrices) &#123;</span><br><span class="line">    usdOracle = _usdOracle;</span><br><span class="line">    price1Letter = _rentPrices[0];</span><br><span class="line">    price2Letter = _rentPrices[1];</span><br><span class="line">    price3Letter = _rentPrices[2];</span><br><span class="line">    price4Letter = _rentPrices[3];</span><br><span class="line">    price5Letter = _rentPrices[4];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function price(string calldata name, uint256 expires, uint256 duration) external view override returns (IPriceOracle.Price memory)</code> 根据名称长度和租用时间来返回价格</li>
+<li><code>function premium(string calldata name, uint256 expires, uint256 duration) external view returns (uint256)</code> 返回以wei为单位的保险费</li>
+<li><code>function _premium(string memory, uint256 expires, uint256) internal view virtual returns (uint256)</code> 返回以内部基本单位为单位的保险费</li>
+<li><code>function attoUSDToWei(uint256 amount) internal view returns (uint256)</code> 将输入的相应数量的美元换为相应的Wei值</li>
+<li><code>function weiToAttoUSD(uint256 amount) internal view returns (uint256)</code> 将输入的相应数量的Wei值换为相应的美元数量</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ExponentialPremiumPriceOracle.sol 继承实现StablePriceOracle的指数保险费预言机合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 宽限期</span><br><span class="line">uint256 constantGRACE_PERIOD= 90 days;</span><br><span class="line">uint256 immutable startPremium; // 开始的保险费</span><br><span class="line">uint256 immutable endValue;</span><br><span class="line"></span><br><span class="line">uint256 constant PRECISION = 1e18;</span><br><span class="line">    uint256 constant bit1 = 999989423469314432; // 0.5 ^ 1/65536 * (10 ** 18)</span><br><span class="line">    uint256 constant bit2 = 999978847050491904; // 0.5 ^ 2/65536 * (10 ** 18)</span><br><span class="line">    uint256 constant bit3 = 999957694548431104;</span><br><span class="line">    uint256 constant bit4 = 999915390886613504;</span><br><span class="line">    uint256 constant bit5 = 999830788931929088;</span><br><span class="line">    uint256 constant bit6 = 999661606496243712;</span><br><span class="line">    uint256 constant bit7 = 999323327502650752;</span><br><span class="line">    uint256 constant bit8 = 998647112890970240;</span><br><span class="line">    uint256 constant bit9 = 997296056085470080;</span><br><span class="line">    uint256 constant bit10 = 994599423483633152;</span><br><span class="line">    uint256 constant bit11 = 989228013193975424;</span><br><span class="line">    uint256 constant bit12 = 978572062087700096;</span><br><span class="line">    uint256 constant bit13 = 957603280698573696;</span><br><span class="line">    uint256 constant bit14 = 917004043204671232;</span><br><span class="line">    uint256 constant bit15 = 840896415253714560;</span><br><span class="line">    uint256 constant bit16 = 707106781186547584;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    AggregatorInterface _usdOracle,</span><br><span class="line">    uint256[] memory _rentPrices,</span><br><span class="line">    uint256 _startPremium,</span><br><span class="line">    uint256 totalDays</span><br><span class="line">) StablePriceOracle(_usdOracle, _rentPrices) &#123;</span><br><span class="line">    startPremium = _startPremium;</span><br><span class="line">    endValue = _startPremium &gt;&gt; totalDays;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function _premium(string memory, uint256 expires, uint256) internal view override returns (uint256)</code> 返回以内部基本单位为单位的保险费</li>
+<li><code>function decayedPremium(uint256 startPremium, uint256 elapsed) public pure returns (uint256)</code> 返回当前已过去时间的保险费</li>
+<li><code>function addFractionalPremium(uint256 fraction, uint256 premium) internal pure returns (uint256)</code> 添加分数保险费</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ILinearPremiumPriceOracle.sol 线性保险费价格预言机接口规范<ul>
+<li>function<ul>
+<li><code>function timeUntilPremium(uint256 expires, uint256 amount) external view returns (uint256);</code> 返回有具体到期时间的name将会有具体重新注册的保险费时的时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LinearPremiumPriceOracle.sol 继承实现ILinearPremiumPriceOracle的合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uint256 immutable GRACE_PERIOD = 90 days; // 宽限期</span><br><span class="line"></span><br><span class="line">uint256 public immutable initialPremium; // 初始保险费</span><br><span class="line">uint256 public immutable premiumDecreaseRate; // 保险费减小速率</span><br><span class="line"></span><br><span class="line">bytes4 private constantTIME_UNTIL_PREMIUM_ID=</span><br><span class="line">    bytes4(keccak256(&quot;timeUntilPremium(uint,uint&quot;));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    AggregatorInterface _usdOracle,</span><br><span class="line">    uint256[] memory _rentPrices,</span><br><span class="line">    uint256 _initialPremium,</span><br><span class="line">    uint256 _premiumDecreaseRate</span><br><span class="line">) public StablePriceOracle(_usdOracle, _rentPrices) &#123;</span><br><span class="line">    initialPremium = _initialPremium;</span><br><span class="line">    premiumDecreaseRate = _premiumDecreaseRate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function _premium(string memory name, uint256 expires, uint256 /*duration*/) internal view override returns (uint256)</code> 返回保险费(在宽限期内则返回折扣价，不在宽限期内则直接返回0)</li>
+<li><code>function timeUntilPremium(uint256 expires, uint256 amount) external view returns (uint256)</code> 返回有具体到期时间的name将会有具体重新注册的保险费时的时间戳</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SafeMath.sol 安全数学计算库<ul>
+<li>function<ul>
+<li><code>function mul(uint256 a, uint256 b) internal pure returns (uint256)</code> 两数相乘，溢出时回退</li>
+<li><code>function div(uint256 a, uint256 b) internal pure returns (uint256)</code> 两数相除，除以0时回退</li>
+<li><code>function sub(uint256 a, uint256 b) internal pure returns (uint256)</code> 两数相减，溢出时回退</li>
+<li><code>function add(uint256 a, uint256 b) internal pure returns (uint256)</code> 两数相加，溢出时回退</li>
+<li><code>function mod(uint256 a, uint256 b) internal pure returns (uint256)</code> 两数求余，除以0时回退</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>StringUtils.sol 字符串工具库<ul>
+<li>function<ul>
+<li><code>function strlen(string memory s) internal pure returns (uint256)</code> 返回所给字符串的长度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TestResolver.sol 测试解析器实现合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapping(bytes32 =&gt; address) addresses; // node =&gt; address</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function supportsInterface(bytes4 interfaceID) public pure returns (bool)</code> ERC165</li>
+<li><code>function addr(bytes32 node) public view returns (address)</code> 返回node的地址</li>
+<li><code>function setAddr(bytes32 node, address addr) public</code> 设置node的地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>registry</p>
+<ul>
+<li><p><strong>ENS.sol registrar 合约接口规范</strong></p>
+<ul>
+<li>event<ul>
+<li><code>event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);</code> 根域名分配一个子域名给一个新owner</li>
+<li><code>event Transfer(bytes32 indexed node, address owner);</code> 根域名转让给新owner</li>
+<li><code>event NewResolver(bytes32 indexed node, address resolver);</code> 根域名的解析器改变</li>
+<li><code>event NewTTL(bytes32 indexed node, uint64 ttl);</code> 根域名的缓存有效时间改变</li>
+<li><code>event ApprovalForAll(address indexed owner, address indexed operator, bool approved);</code> 某个operator被授权&#x2F;取消授权</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external</code> 设置根域名解析器以及有效时间</li>
+<li><code>function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external</code> 设置子域名解析器以及有效时间</li>
+<li><code>function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external returns (bytes32)</code> 设置子域名的owner</li>
+<li><code>function setResolver(bytes32 node, address resolver) external</code> 设置域名解析器</li>
+<li><code>function setOwner(bytes32 node, address owner) external</code> 设置域名owner</li>
+<li><code>function setTTL(bytes32 node, uint64 ttl) external</code> 设置域名有效时间</li>
+<li><code>function setApprovalForAll(address operator, bool approved) external</code> 授权operator</li>
+<li><code>function owner(bytes32 node) external view returns (address)</code> 获取域名的owner</li>
+<li><code>function resolver(bytes32 node) external view returns (address)</code> 获取域名的解析器</li>
+<li><code>function ttl(bytes32 node) external view returns (uint64)</code> 获取域名的有效时间</li>
+<li><code>function recordExists(bytes32 node) external view returns (bool)</code> 域名是否已被其它用户拥有</li>
+<li><code>function isApprovedForAll(address owner, address operator) external view returns (bool)</code> operator是否被owner授权</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ENSRegistry.sol 继承实现ENS合约</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct Record &#123;</span><br><span class="line">        address owner;     // 拥有者</span><br><span class="line">        address resolver;  // 解析器</span><br><span class="line">        uint64 ttl;        // 有效时间</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">mapping(bytes32 =&gt; Record) records; // 对应域名地址的Record结构体</span><br><span class="line">mapping(address =&gt; mapping(address =&gt; bool)) operators; // owner是否给operator授权</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier authorised(bytes32 node)</code> 判断调用者是否为拥有者或被授权者</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<ul>
+<li><code>constructor() public &#123;records[0x0].owner = msg.sender;</code> 初始化0地址的拥有者为合约部署者</li>
+</ul>
+</li>
+<li><p>note</p>
+<p>  这里的setRecord&#x2F;setSubnodeRecord方法都是分两步执行，先设置owner，再设置解析器以及有效时间，将业务拆分，起到解耦的作用，具体示例代码如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">// setRecord</span><br><span class="line">function setRecord(</span><br><span class="line">        bytes32 node,</span><br><span class="line">        address owner,</span><br><span class="line">        address resolver,</span><br><span class="line">        uint64 ttl</span><br><span class="line">    ) external virtual override &#123;</span><br><span class="line">        setOwner(node, owner);</span><br><span class="line">        _setResolverAndTTL(node, resolver, ttl);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">function setOwner(bytes32 node, address owner)</span><br><span class="line">        public</span><br><span class="line">        virtual</span><br><span class="line">        override</span><br><span class="line">        authorised(node)</span><br><span class="line">    &#123;</span><br><span class="line">        _setOwner(node, owner);</span><br><span class="line">        emit Transfer(node, owner);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// setSubnodeRecord</span><br><span class="line">function setSubnodeRecord(</span><br><span class="line">        bytes32 node,</span><br><span class="line">        bytes32 label,</span><br><span class="line">        address owner,</span><br><span class="line">        address resolver,</span><br><span class="line">        uint64 ttl</span><br><span class="line">    ) external virtual override &#123;</span><br><span class="line">        bytes32 subnode = setSubnodeOwner(node, label, owner);</span><br><span class="line">        _setResolverAndTTL(subnode, resolver, ttl);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">function setSubnodeOwner(</span><br><span class="line">        bytes32 node,</span><br><span class="line">        bytes32 label,</span><br><span class="line">        address owner</span><br><span class="line">    ) public virtual override authorised(node) returns (bytes32) &#123;</span><br><span class="line">        bytes32 subnode = keccak256(abi.encodePacked(node, label));</span><br><span class="line">        _setOwner(subnode, owner);</span><br><span class="line">        emit NewOwner(node, label, owner);</span><br><span class="line">        return subnode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// Universal function</span><br><span class="line">function _setOwner(bytes32 node, address owner) internal virtual &#123;</span><br><span class="line">        records[node].owner = owner;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">function _setResolverAndTTL(</span><br><span class="line">        bytes32 node,</span><br><span class="line">        address resolver,</span><br><span class="line">        uint64 ttl</span><br><span class="line">    ) internal &#123;</span><br><span class="line">        if (resolver != records[node].resolver) &#123;</span><br><span class="line">            records[node].resolver = resolver;</span><br><span class="line">            emit NewResolver(node, resolver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (ttl != records[node].ttl) &#123;</span><br><span class="line">            records[node].ttl = ttl;</span><br><span class="line">            emit NewTTL(node, ttl);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>ENSRegistryWithFallback.sol 继承重写ENSRegistry合约部分函数</p>
+<ul>
+<li><p>constructor</p>
+<p>  初始化得到原来ENS合约的地址</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS _old) public ENSRegistry() &#123;</span><br><span class="line">		old = _old;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function resolver(bytes32 node) public view override returns (address)</code></li>
+<li><code>function owner(bytes32 node) public view override returns (address)</code></li>
+<li><code>function ttl(bytes32 node) public view override returns (uint64)</code></li>
+<li><code>function _setOwner(bytes32 node, address owner) internal override</code></li>
+</ul>
+<p>  resolver、owner、ttl 增加判断node是否已被用户所拥有，若没有被用户拥有，则返回 _old 默认的resolver、owner、ttl，否则返回records中所记录的Record结构体中的resolver、owner、ttl</p>
+<p>  _setOwner 增加判断owner是否为0地址，是则将地址赋值为本合约地址，否则不变</p>
+</li>
+</ul>
+</li>
+<li><p>FIFSRegistrar.sol 将子域名分配给第一个来认领的用户的合约</p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENS ens;</span><br><span class="line">bytes32 rootNode; // 根域名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier only_owner(bytes32 label)</code> 将根域名和子域名hash打包加密并通过owner函数得到一个地址，然后判断该地址是否为0地址或当前调用者</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<p>  初始化ENS合约地址以及根域名地址</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS ensAddr, bytes32 node) public &#123;</span><br><span class="line">        ens = ensAddr;</span><br><span class="line">        rootNode = node;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function register(bytes32 label, address owner) public only_owner(label)</code> 设置子域名owner</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TestRegistrar.sol</p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uint256 constant registrationPeriod = 4 weeks; // 解析器过期时间</span><br><span class="line"></span><br><span class="line">ENS public immutable ens; // ENS合约地址</span><br><span class="line">bytes32 public immutable rootNode; // 根域名地址</span><br><span class="line">mapping(bytes32 =&gt; uint256) public expiryTimes; // 过期时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+<p>  初始化ENS合约地址以及根域名地址</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS ensAddr, bytes32 node) &#123;</span><br><span class="line">        ens = ensAddr;</span><br><span class="line">        rootNode = node;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function register(bytes32 label, address owner) public</code> 注册子域名并给其设置四周的过期时间，注册经过四周后才能重新注册</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>resolvers</p>
+<ul>
+<li>mocks<ul>
+<li>DummyNameWrapper.sol<ul>
+<li><code>function ownerOf( uint256 ) public view returns (address)</code> 实现一个返回调用者地址的dummy NameWrapper(虚拟名字包装器)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>profiles<ul>
+<li>IABIResolver.sol ABI解析器接口规范<ul>
+<li>event<ul>
+<li><code>event ABIChanged(bytes32 indexed node, uint256 indexed contentType);</code> ABI改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function ABI(bytes32 node, uint256 contentTypes) external view</code> <code>returns (uint256, bytes memory);</code> 返回域名地址的相关ABI信息(其中contentTypes为调用者所接受的按位或运算的ABI格式)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ABIResolver.sol (abstract) 继承实现IABIResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 版本解析记录 =&gt; 域名地址 =&gt; ABI的内容类型 =&gt; ABI data</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(uint256 =&gt; bytes))) versionable_abis;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setABI(bytes32 node, uint256 contentType, bytes calldata data) external virtual authorised(node)</code> 设置ABI</li>
+<li><code>function ABI(bytes32 node, uint256 contentTypes) external view virtual override returns (uint256, bytes memory)</code> 返回ABI的内容类型和数据</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IAddrResolver.sol 地址解析器接口规范<ul>
+<li>event<ul>
+<li><code>event AddrChanged(bytes32 indexed node, address a);</code> 地址改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function addr(bytes32 node) external view returns (address payable);</code> 返回与域名地址相关的地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IAddressResolver.sol 新(多币)的IAddrResolver接口规范<ul>
+<li>event<ul>
+<li><code>event AddressChanged(bytes32 indexed node, uint256 coinType, bytes newAddress);</code> 地址改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function addr(bytes32 node, uint256 coinType) external view returns (bytes memory);</code> 返回与域名地址和coinType(币种)相关的地址的bytes类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AddrResolver.sol (abstract) 继承实现IAddrResolver、IAddressResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uint256 private constantCOIN_TYPE_ETH= 60; // 币种标记</span><br><span class="line">// 域名解析记录版本 =&gt; 域名地址 =&gt; 币种标记(如COIN_TYPE_ETH) =&gt; 地址的bytes类型</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(uint256 =&gt; bytes))) versionable_addresses;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setAddr(bytes32 node, address a) external virtual authorised(node)</code> 设置与域名地址相关的地址</li>
+<li><code>function addr(bytes32 node) public view virtual override returns (address payable)</code> 返回与域名地址相关的地址</li>
+<li><code>function setAddr(bytes32 node, uint256 coinType, bytes memory a) external virtual authorised(node)</code> 设置与域名地址相关的地址和币种</li>
+<li><code>function addr(bytes32 node, uint256 coinType) public view virtual override returns (bytes payable)</code> 返回与域名地址和币种标记相关的bytes类型的地址</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+<li><code>function bytesToAddress(bytes memory b) internal pure returns (address payable a)</code> 将bytes类型转化为地址类型</li>
+<li><code>function addressToBytes(address a) internal pure returns (bytes memory b)</code> 将地址类型转化为bytes类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IContentHashResolver.sol 内容hash解析器接口规范<ul>
+<li>event<ul>
+<li><code>event ContenthashChanged(bytes32 indexed node, bytes hash);</code> 内容hash改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function contenthash(bytes32 node) external view returns (bytes memory);</code> 返回与域名节点相关的内容hash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ContentHashResolver.sol (abstract) 继承实现IContentHashResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 域名解析记录版本 =&gt; 域名地址 =&gt; 内容hash</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; bytes)) versionable_hashes;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setContenthash(bytes32 node, bytes calldata hash) external virtual authorised(node)</code> 设置内容hash</li>
+<li><code>function contenthash(bytes32 node) external view virtual override returns (bytes memory)</code> 返回与域名地址相关的内容hash</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IDNSZoneResolver.sol DNS区域解析器接口规范<ul>
+<li>event<ul>
+<li><code>event DNSZonehashChanged(bytes32 indexed node, bytes lastzonehash, bytes zonehash);</code> DNS区域哈希值改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function zonehash(bytes32 node) external view returns (bytes memory);</code> 返回区域的哈希值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IDNSRecordResolver.sol DNS记录解析器接口规范<ul>
+<li>event<ul>
+<li><code>event DNSRecordChanged(bytes32 indexed node, bytes name, uint16 resource, bytes record);</code> DNS记录改变</li>
+<li><code>event DNSRecordDeleted(bytes32 indexed node, bytes name, uint16 resource);</code> DNS记录删除</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function dnsRecord(bytes32 node, bytes32 name, uint16 resource) external view returns (bytes memory);</code> 返回一个DNS记录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DNSResolver.sol (abstract) 继承实现IDNSZoneResolver、IDNSRecordResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; 区域哈希</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; bytes)) private versionable_zonehashes;</span><br><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; 该解析记录的完全限定名称的keccak-256哈希  =&gt; DNS记录类型 =&gt; 有线格式的DNS记录</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(bytes32 =&gt; mapping(uint16 =&gt; bytes)))) private versionable_records;</span><br><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; namehash =&gt; 记录的数量</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(bytes32 =&gt; uint16))) private versionable_nameEntriesCount;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setDNSRecords(bytes32 node, bytes calldata data) external virtual authorised(node)</code> 设置一个或多个DNS记录(线性格式)<br><strong>(具有相同 域名地址&#x2F;namehash&#x2F;DNS记录类型 的记录必须一个接一个地提供，以确保数据更新正确。例如，如果提供数据： a.example.com IN A 1.2.3.4 a.example.com IN A 5.6.7.8 那么这将把a.example.com的两个A记录正确地存储为一个RRSET，但是如果提供了数据： a.example.com IN A 1.2.3.4 <a target="_blank" rel="noopener" href="http://www.example.com/">www.example.com</a> IN CNAME a.example.com a.example.com IN A 5.6.7.8 这将存储第一个A记录，CNAME，然后是第二个A记录，它将覆盖第一个记录。)</strong></li>
+<li><code>function dnsRecord(bytes32 node, bytes32 name, uint16 resource) public view virtual override returns (bytes memory)</code> 返回线性格式的解析记录，否则为空</li>
+<li><code>function hasDNSRecords(bytes32 node, bytes32 name) public view virtual returns (bool)</code> 检查给定的域名地址是否有解析记录</li>
+<li><code>function setZonehash(bytes32 node, bytes calldata hash) external virtual authorised(node)</code> 设置区域的hash</li>
+<li><code>function zonehash(bytes32 node) external view virtual override returns (bytes memory)</code> 获取给定域名地址的区域hash</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+<li><code>function setDNSRRSet(bytes32 node, bytes memory name, uint16 resource, bytes memory data, uint256 offset, uint256 size, bool deleteRecord, uint64 version) private</code> 设置DNS RRSet</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IExtendedResolver.sol 扩展解析器接口规范<ul>
+<li>function<ul>
+<li><code>function resolve(bytes memory name, bytes memory data) external view returns (bytes memory, address);</code> 返回对应名称hash的解析器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IInterfaceResolver.sol 接口解析器接口规范<ul>
+<li>event<ul>
+<li><code>event InterfaceChanged(bytes32 indexed node, bytes4 indexed interfaceID, address implementer);</code> 接口改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function interfaceImplementer(bytes32 node, bytes4 interfaceID) external view returns (address);</code> 返回实现接口 ID 的合约地址。如果尚未为此接口 ID 和名称设置实现者，则解析器将在 addr() 处查询合约。如果设置了 addr() ，且该地址存在合约，并且该合约实现了 EIP165 并为指定的 interfaceID 返回 true ，则其地址将被返回。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>InterfaceResolver.sol (abstract) 继承实现IInterfaceResolver、AddrResolver合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; 接口ID =&gt; 为该域名实现接口的合约地址</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(bytes4 =&gt; address))) versionable_interfaces;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setInterface(bytes32 node, bytes4 interfaceID, address implementer) external virtual authorised(node)</code> 为该域名地址设置实现接口ID的合约地址</li>
+<li><code>function interfaceImplementer(bytes32 node, bytes4 interfaceID) external view virtual override returns (address)</code> 返回实现接口 ID 的合约地址。如果尚未为此接口 ID 和名称设置实现者，则解析器将在 addr() 处查询合约。如果设置了 addr() ，且该地址存在合约，并且该合约实现了 EIP165 并为指定的 interfaceID 返回 true ，则其地址将被返回。</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>INameResolver.sol  名称解析器接口规范<ul>
+<li>event<ul>
+<li><code>event NameChanged(bytes32 indexed node, string name);</code> 名称改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function name(bytes32 node) external view returns (string memory);</code> 返回与该域名地址相关的名称，用于反向记录  EIP181</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NameResolver.sol (abstract) 继承实现INameResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; 名称</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; string)) versionable_names;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setName(bytes32 node, string calldata newName) external virtual authorised(node)</code> 设置与该域名地址相关的名称，用于反向记录</li>
+<li><code>function name(bytes32 node) external view virtual override returns (string memory)</code> 返回与该域名地址相关的名称，用于反向记录</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPubkeyResolver.sol 公钥解析器接口规范<ul>
+<li>event<ul>
+<li><code>event PubkeyChanged(bytes32 indexed node, bytes32 x, bytes32 y);</code> 公钥改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function pubkey(bytes32 node) external view returns (bytes32 x, bytes32 y);</code> 返回与该域名地址相关的 SECP256k1 公钥   EIP619</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PubkeyResolver.sol (abstract) 继承实现IPubkeyResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct PublicKey &#123;</span><br><span class="line">    bytes32 x; // 公钥曲线点的x坐标</span><br><span class="line">    bytes32 y; // 公钥曲线点的y坐标</span><br><span class="line">&#125;</span><br><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; 公钥结构</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; PublicKey)) versionable_pubkeys;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setPubkey(bytes32 node, bytes32 x, bytes32 y) external virtual authorised(node)</code> 设置与该域名地址相关的 SECP256k1 公钥</li>
+<li><code>function pubkey(bytes32 node) external view virtual override returns (bytes32 x, bytes32 y)</code> 返回与该域名地址相关的 SECP256k1 公钥</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ITextResolver.sol 文本解析器接口规范<ul>
+<li>event<ul>
+<li><code>event TextChanged(bytes32 indexed node, string indexed indexedKey, string key, string value);</code> 文本改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function text(bytes32 node, string calldata key) external view returns (string memory);</code> 返回与该域名地址和key(键)相关的文本数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TextResolver.sol (abstract) 继承实现ITextResolver、ResolverBase合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 解析记录版本 =&gt; 域名地址 =&gt; key =&gt; 文本数据</span><br><span class="line">mapping(uint64 =&gt; mapping(bytes32 =&gt; mapping(string =&gt; string))) versionable_texts;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setText(bytes32 node, string calldata key, string calldata value) external virtual authorised(node)</code> 设置与该域名地址和给定key(键)相关的文本数据</li>
+<li><code>function text(bytes32 node, string calldata key) external view virtual override returns (string memory)</code> 返回与该域名地址和给定key(键)相关的文本数据</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IVersionableResolver.sol 版本解析器接口规范<ul>
+<li>event<ul>
+<li><code>event VersionChanged(bytes32 indexed node, uint64 newVersion);</code> 版本改变</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function recordVersions(bytes32 node) external view returns (uint64);</code> 返回给定域名地址的解析记录版本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IMulticallable.sol multicall接口规范<ul>
+<li>function<ul>
+<li><code>function multicall(bytes[] calldata data) external returns (bytes[] memory results);</code></li>
+<li><code>function multicallWithNodeCheck(bytes32, bytes[] calldata data) external returns (bytes[] memory results);</code> 当从特权合约(<code>such as EthRegistrarController</code>)调用时会提供额外的安全检查，该合约可以代表域名所有者设置record</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multicallable.sol (abstract) 继承实现multicall合约<ul>
+<li>function<ul>
+<li><code>function _multicall(bytes32 nodehash, bytes[] calldata data) internal returns (bytes[] memory results)</code> muticall的internal function</li>
+<li><code>function multicall(bytes[] calldata data) external returns (bytes[] memory results)</code></li>
+<li><code>function multicallWithNodeCheck(bytes32, bytes[] calldata data) external returns (bytes[] memory results)</code> 当从特权合约(<code>such as EthRegistrarController</code>)调用时会提供额外的安全检查，该合约可以代表域名所有者设置record</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OwnedResolver.sol 是否拥有解析器<ul>
+<li>function<ul>
+<li><code>function isAuthorised(bytes32) internal view override returns (bool)</code> 检查调用者是否为合约owner</li>
+<li><code>function supportsInterface(bytes4 interfaceID)publicviewvirtualoverride(ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver) returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>PublicResolver.sol 公共解析器</strong><ul>
+<li><p>interface</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface INameWrapper &#123;</span><br><span class="line">    function ownerOf(uint256 id) external view returns (address);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ENS immutable ens; // 实现ENS的合约地址</span><br><span class="line">INameWrapper immutable nameWrapper; // 实现INameWrapper的合约地址</span><br><span class="line">address immutable trustedETHController; // 受信任的ETHController地址</span><br><span class="line">address immutable trustedReverseRegistrar; // 受信任的逆向解析器地址</span><br><span class="line">mapping(address =&gt; mapping(address =&gt; bool)) private _operatorApprovals; // owner =&gt; operator =&gt; 是否授权</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event ApprovalForAll(address indexed owner, address indexed operator, bool approved);</code> 授权改变(授权者新增或删除)</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<p>  初始化四个地址</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    ENS _ens,</span><br><span class="line">    INameWrapper wrapperAddress,</span><br><span class="line">    address _trustedETHController,</span><br><span class="line">    address _trustedReverseRegistrar</span><br><span class="line">) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">    nameWrapper = wrapperAddress;</span><br><span class="line">    trustedETHController = _trustedETHController;</span><br><span class="line">    trustedReverseRegistrar = _trustedReverseRegistrar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setApprovalForAll(address operator, bool approved) external</code> 授权&#x2F;取消授权</li>
+<li><code>function isApprovedForAll(address account, address operator)publicviewreturns (bool)</code> 是否授权</li>
+<li><code>function isAuthorised(bytes32 node) internal view override returns (bool)</code> 判断调用者是否为受信任的ETHController地址或受信任的逆向解析器地址，若为实现INameWrapper的合约地址则判断调用者是否为该合约的拥有者或被授权者</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view override(Multicallable, ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver) returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Resolver.sol 解析器接口规范</strong><ul>
+<li>event<ul>
+<li><code>event ContentChanged(bytes32 indexed node, bytes32 hash);</code> 已弃用</li>
+</ul>
+</li>
+<li>function<ul>
+<li><code>function setABI(bytes32 node, uint256 contentType, bytes calldata data) external;</code> 设置ABI</li>
+<li><code>function setAddr(bytes32 node, address addr) external;</code> 设置地址</li>
+<li><code>function setAddr(bytes32 node,``uint256 coinType,</code> <code>bytes calldata a) external;</code> 设置地址</li>
+<li><code>function setContenthash(bytes32 node, bytes calldata hash) external;</code> 设置内容哈希</li>
+<li><code>function setDnsrr(bytes32 node, bytes calldata data) external;</code> 设置Dnsrr</li>
+<li><code>function setName(bytes32 node, string calldata _name) external;</code> 设置name</li>
+<li><code>function setPubkey(bytes32 node, bytes32 x, bytes32 y) external;</code> 设置公钥</li>
+<li><code>function setText(bytes32 node, string calldata key, string calldata value) external;</code> 设置文本</li>
+<li><code>function setInterface(bytes32 node, bytes4 interfaceID,  address implementer) external;</code> 设置接口</li>
+<li><code>function multicall(bytes[] calldata data) external returns (bytes[] memory results);</code></li>
+<li><code>function multicallWithNodeCheck(bytes32 nodehash, bytes[] calldata data) external returns (bytes[] memory results);</code> 提供额外的安全检查</li>
+<li><code>function content(bytes32 node) external view returns (bytes32);</code> 获取content (已弃用)</li>
+<li><code>function multihash(bytes32 node) external view returns (bytes memory);</code> 获取multihash</li>
+<li><code>function setContent(bytes32 node, bytes32 hash) external;</code> 设置content</li>
+<li><code>function setMultihash(bytes32 node, bytes calldata hash) external;</code> 设置multihash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ResolverBase.sol  (abstract) 基础解析器</strong><ul>
+<li><p>data struct</p>
+<ul>
+<li><code>mapping(bytes32 =&gt; uint64) public recordVersions;</code> 域名 ⇒ 解析记录版本</li>
+</ul>
+</li>
+<li><p>modifier</p>
+<p>  检查域名地址</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">modifier authorised(bytes32 node) &#123;</span><br><span class="line">    require(isAuthorised(node));</span><br><span class="line">    _;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function isAuthorised(bytes32 node) internal view virtual returns (bool)</code> (未具体实现) 检查域名地址</li>
+<li><code>function clearRecords(bytes32 node) public virtual authorised(node)</code> 增加与node相关的解析记录版本</li>
+<li><code>function supportsInterface(bytes4 interfaceID) public view virtual override returns(bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>reverseRegistrar</p>
+<ul>
+<li><p><strong>IReverseRegistrar.sol 逆向解析器合约</strong></p>
+<ul>
+<li>function<ul>
+<li><code>function setDefaultResolver(address resolver) external</code> 设置默认解析器</li>
+<li><code>function claim(address owner) external returns (bytes32)</code> 转移与调用账户相关的逆向解析记录的所有权，调用账户默认为调用该函数的调用者，解析器为默认的逆向解析器</li>
+<li><code>function claimForAddr(address addr, address owner, address resolver) external returns (bytes32)</code> 转移与调用账户相关的逆向解析记录的所有权</li>
+<li><code>function claimWithResolver(address owner, address resolver) external returns (bytes32)</code> 转移与调用账户相关的逆向解析记录的所有权，调用账户默认为调用该函数的调用者</li>
+<li><code>function setName(string memory name) external returns (bytes32)</code> 为与调用账户相关的逆向解析记录设置name()记录，必要时会先解析器更新为默认的逆向解析器</li>
+<li><code>function setNameForAddr(address addr, address owner, address resolver, string memory name) external returns (bytes32)</code> 为与调用账户相关的逆向解析记录设置name()记录，将解析器更新为指定的解析器，同时该函数只能由controller和已授权的用户调用</li>
+<li><code>function node(address addr) external pure returns (bytes32)</code> 返回给定地址的逆向解析记录的域名hash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ReverseClaimer.sol 逆向声明者合约 <strong>(用于部署之后，将所有权转让出去)</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 逆向解析node地址</span><br><span class="line">bytes32 constant ADDR_REVERSE_NODE =</span><br><span class="line">        0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS ens, address claimant) &#123;</span><br><span class="line">    IReverseRegistrar reverseRegistrar = IReverseRegistrar(</span><br><span class="line">        ens.owner(ADDR_REVERSE_NODE)</span><br><span class="line">    );</span><br><span class="line">    reverseRegistrar.claim(claimant);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>ReverseRegistrar.sol (abstract) 继承实现IReverseRegistrar合约</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENS public immutable ens; // 指定ENS合约地址</span><br><span class="line">NameResolver public defaultResolver; // 默认逆向解析器</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constant</p>
+<ul>
+<li><code>bytes32 constant lookup = 0x3031323334353637383961626364656600000000000000000000000000000000;</code></li>
+<li><code>bytes32 constant ADDR_REVERSE_NODE = 0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2;</code></li>
+</ul>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event ReverseClaimed(address indexed addr, bytes32 indexed node)</code> 逆向解析记录已转让&#x2F;声明</li>
+<li><code>event DefaultResolverChanged(NameResolver indexed resolver)</code> 默认逆向解析器已改变</li>
+</ul>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier authorised(address addr)</code> 判断addr是否为调用者自身地址、controller地址、已被函数调用者授权的地址、addr所属合约的拥有者中的一个</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<p>  初始化ENS合约地址，同时给合约部署者分配逆向解析记录的拥有权</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS ensAddr) &#123;</span><br><span class="line">    ens = ensAddr;</span><br><span class="line"></span><br><span class="line">    // Assign ownership of the reverse record to our deployer</span><br><span class="line">    ReverseRegistrar oldRegistrar = ReverseRegistrar(</span><br><span class="line">        ensAddr.owner(ADDR_REVERSE_NODE)</span><br><span class="line">    );</span><br><span class="line">    if (address(oldRegistrar) != address(0x0)) &#123;</span><br><span class="line">        oldRegistrar.claim(msg.sender);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function sha3HexAddress(address addr) private pure returns (bytes32 ret)</code> 计算以小写十六进制表示的以太坊地址的sha3结果</li>
+<li><code>function ownsContract(address addr) internal view returns (bool)</code> 判断addr是否为合约拥有者</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>root</p>
+<ul>
+<li>Controllable.sol<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapping(address =&gt; bool) public controllers; // 是否有这个controller</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event ControllerChanged(address indexed controller, bool enabled);</code> Controller的存在状态改变</li>
+</ul>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier onlyController()</code> 调用者是否是一个Controller</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setController(address controller, bool enabled) public onlyOwner</code> 设置Controller</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ownable.sol<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address public owner;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);</code> 拥有者改变</li>
+</ul>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier onlyOwner()</code> 调用者是否为合约拥有者</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<ul>
+<li><code>constructor() public &#123;owner = msg.sender;&#125;</code> 初始化合约拥有者</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function transferOwnership(address newOwner) public onlyOwner</code> 转让拥有权</li>
+<li><code>function isOwner(address addr) public view returns (bool)</code> 判断是否为拥有者</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Root.sol<ul>
+<li><p>constant</p>
+<ul>
+<li><code>bytes32 private constant ROOT_NODE = bytes32(0);</code> 根域名合约地址</li>
+<li><code>bytes4 private constant INTERFACE_META_ID = bytes4(keccak256(&quot;supportsInterface(bytes4)&quot;));</code> interface元数据ID</li>
+</ul>
+</li>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENS public ens; // 继承实现ENS合约的地址</span><br><span class="line">mapping(bytes32 =&gt; bool) public locked;  // 子域名是否被锁定</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event TLDLocked(bytes32 indexed label);</code> 子域名已锁定</li>
+</ul>
+</li>
+<li><p>constructor</p>
+<ul>
+<li><code>constructor(ENS _ens) public</code> 初始化ENS合约</li>
+</ul>
+<p>  这里的 _ens 实际为一个已继承实现ENS合约的合约地址，使用ENS类型个人认为主要是为了便于开发者可以一目了然地知道ENS合约中定义的所有event和function
+  </p>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setSubnodeOwner(bytes32 label, address owner) external onlyController</code> 设置子域名的拥有者</li>
+<li><code>function setResolver(address resolver) external onlyOwner</code> 设置解析器</li>
+<li><code>function lock(bytes32 label) external onlyOwner</code> 设置子域名锁定</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external pure returns (bool)</code> 接口是否为项目支持的接口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>utils</p>
+<p>  一些工具函数，这里不多赘述</p>
+</li>
+<li><p>wrapper</p>
+<ul>
+<li><p>mock</p>
+<ul>
+<li>ERC1155ReceiverMock.sol ERC1155接收者模拟合约<ul>
+<li><p>data stuct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bytes4 private _recRetval;</span><br><span class="line">bool private _recReverts;</span><br><span class="line">bytes4 private _batRetval;</span><br><span class="line">bool private _batReverts;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event Received(address operator, address from, uint256 id, uint256 value, bytes data);</code> 接收</li>
+<li><code>event BatchReceived(address operator, address from, uint256[] ids, uint256[] values, bytes data);</code> 批量接收</li>
+</ul>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    bytes4 recRetval,</span><br><span class="line">    bool recReverts,</span><br><span class="line">    bytes4 batRetval,</span><br><span class="line">    bool batReverts</span><br><span class="line">) &#123;</span><br><span class="line">    _recRetval = recRetval;</span><br><span class="line">    _recReverts = recReverts;</span><br><span class="line">    _batRetval = batRetval;</span><br><span class="line">    _batReverts = batReverts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function onERC1155Received(address operator, address from, uint256 id, uint256 value, bytes calldata data) external override returns (bytes4)</code> 在代币的转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function onERC1155BatchReceived(address operator, address from, uint256[] calldata ids, uint256[] calldata values, bytes calldata data) external override returns (bytes4)</code> 在代币的批量转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TestUnwrap.sol 测试解封装合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bytes32 private constantETH_NODE=</span><br><span class="line">    0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;</span><br><span class="line"></span><br><span class="line">ENS public immutable ens;</span><br><span class="line">IBaseRegistrar public immutable registrar;</span><br><span class="line">mapping(address =&gt; bool) public approvedWrapper;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS _ens, IBaseRegistrar _registrar) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">    registrar = _registrar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setWrapperApproval(address wrapper, bool approved) public onlyOwner</code> 授权封装器</li>
+<li><code>function wrapETH2LD(string calldata label, address wrappedOwner, uint32 fuses, uint64 expiry, address resolver) public</code> 解开 .eth 域名的封装</li>
+<li><code>function setSubnodeRecord(bytes32 parentNode, string memory label, address newOwner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) public</code> 设置子node的记录</li>
+<li><code>function wrapFromUpgrade(bytes calldata name, address wrappedOwner, uint32 fuses, uint64 expiry, address approved, bytes calldata extraData) public</code> 域名封装升级</li>
+<li><code>function _unwrapETH2LD(bytes32 labelhash, address wrappedOwner, address sender) private</code> 解开 .eth 域名的封装</li>
+<li><code>function _unwrapSubnode(bytes32 node, address newOwner, address sender) private</code> 解开 子node 的封装</li>
+<li><code>function _makeNode(bytes32 node, bytes32 labelhash) private pure returns (bytes32)</code> 计算encodePacked(node, labelhash)的哈希值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>UpgradedNameWrapperMock.sol 升级域名封装模拟合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bytes32 private constantETH_NODE=</span><br><span class="line">    0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;</span><br><span class="line"></span><br><span class="line">ENS public immutable ens;</span><br><span class="line">IBaseRegistrar public immutable registrar;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event NameUpgraded(bytes name, address wrappedOwner, uint32 fuses, uint64 expiry, address approved, bytes extraData);</code> 域名封装升级</li>
+</ul>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(ENS _ens, IBaseRegistrar _registrar) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">    registrar = _registrar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function wrapFromUpgrade(bytes calldata name, address wrappedOwner, uint32 fuses, uint64 expiry, address approved, bytes calldata extraData) public</code> 域名封装升级</li>
+<li><code>function _makeNode(bytes32 node, bytes32 labelhash) private pure returns (bytes32)</code> 计算encodePacked(node, labelhash)的哈希值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>test</p>
+<ul>
+<li>NameGriefer.sol<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENS public immutable ens;</span><br><span class="line">INameWrapper public immutable wrapper;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">constructor(INameWrapper _wrapper) &#123;</span><br><span class="line">    wrapper = _wrapper;</span><br><span class="line">    ENS _ens = _wrapper.ens();</span><br><span class="line">    ens = _ens;</span><br><span class="line">    _ens.setApprovalForAll(address(_wrapper), true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function destroy(bytes calldata name) public</code> 域名封装</li>
+<li><code>function onERC1155Received(address operator, address from, uint256 id, uint256, bytes calldata) external override returns (bytes4)</code> 在代币的转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function onERC1155BatchReceived(address, address, uint256[] calldata, uint256[] calldata, bytes calldata) external override returns (bytes4)</code> 在代币的批量转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external view override returns (bool)</code> ERC165</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TestBytesUtils.sol 测试字节工具库合约<ul>
+<li>function<ul>
+<li><code>function readLabel(bytes calldata name, uint256 offset) public pure returns (bytes32, uint256)</code> 返回 DNS 编码label的 keccak-256 哈希，以及下一个label开头的偏移量</li>
+<li><code>function namehash(bytes calldata name, uint256 offset) public pure returns (bytes32)</code> 返回 DNS 编码名称的 ENS namehash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TestNameWrapperReentrancy.sol 测试域名封装器重入合约<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INameWrapper nameWrapper;</span><br><span class="line">address owner;</span><br><span class="line">bytes32 parentNode;</span><br><span class="line">bytes32 labelHash;</span><br><span class="line">uint256 tokenId;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    address _owner,</span><br><span class="line">    INameWrapper _nameWrapper,</span><br><span class="line">    bytes32 _parentNode,</span><br><span class="line">    bytes32 _labelHash</span><br><span class="line">) &#123;</span><br><span class="line">    owner = _owner;</span><br><span class="line">    nameWrapper = _nameWrapper;</span><br><span class="line">    parentNode = _parentNode;</span><br><span class="line">    labelHash = _labelHash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool)</code> ERC165</li>
+<li><code>function onERC1155Received(address, address, uint256 _id, uint256, bytes calldata) public override returns (bytes4)</code> 在代币的转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function onERC1155BatchReceived(address, address, uint256[] memory, uint256[] memory, bytes memory) public virtual override returns (bytes4)</code> 在代币的批量转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function claimToOwner() public</code> 合约将tokenId转移给owner</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BytesUtils.sol 字节工具库</p>
+<ul>
+<li>function<ul>
+<li><code>function keccak(bytes memory self, uint256 offset, uint256 len) internal pure returns (bytes32 ret)</code> 返回字节范围的 keccak-256 哈希</li>
+<li><code>function namehash(bytes memory self, uint256 offset) internal pure returns (bytes32)</code> 返回 DNS 编码名称的 ENS namehash</li>
+<li><code>function readLabel(bytes memory self, uint256 idx) internal pure returns (bytes32 labelhash, uint256 newIdx)</code> 返回 DNS 编码label的 keccak-256 哈希，以及下一个label开头的偏移量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Controllable.sol 控制合约</p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapping(address =&gt; bool) public controllers; // 地址 =&gt; 是否为controller</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event ControllerChanged(address indexed controller, bool active);</code> 控制者改变</li>
+</ul>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier onlyController()</code> 判断是否为controller</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function setController(address controller, bool active) public onlyOwner</code> 设置controller</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ERC1155Fuse.sol ERC1155变体合约</strong><br>  <strong>(该合约是ERC1155的变体，增加了_setData，getData和_beforeTransfer和 ownerOf。_setData 和 getData 允许使用所有者地址旁边的其他 96 位来获取额外数据。我们使用它来存储可以被销毁的用于控制权限的“fuse(保险丝)”。32 位用于fuse本身，64 位用于名称到期。当名称过期时，其fuse将设置回 0)</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mapping(uint256 =&gt; uint256) public _tokens;</span><br><span class="line"></span><br><span class="line">// owner =&gt; operator =&gt; 是否授权</span><br><span class="line">mapping(address =&gt; mapping(address =&gt; bool)) private _operatorApprovals;</span><br><span class="line">// tokenId =&gt; 授权的地址</span><br><span class="line">mapping(uint256 =&gt; address) internal _tokenApprovals;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);</code> 授权</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function ownerOf(uint256 id) public view virtual returns (address)</code> 返回id的拥有者</li>
+<li><code>function approve(address to, uint256 tokenId) public virtual</code> 授权tokenId给to</li>
+<li><code>function getApproved(uint256 tokenId) public view virtual returns (address)</code> 获取tokenId授权的地址</li>
+<li><code>function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool)</code> ERC165</li>
+<li><code>function balanceOf(address account, uint256 id) public view virtual override returns (uint256)</code> 获取account是否拥有该id</li>
+<li><code>function balanceOfBatch(address[] memory accounts, uint256[] memory ids) public view virtual override returns (uint256[] memory)</code> 批量查询account是否拥有id</li>
+<li><code>function setApprovalForAll(address operator, bool approved) public virtual override</code> 授权</li>
+<li><code>function isApprovedForAll(address account, address operator) public view virtual override returns (bool)</code> 获取operator是否已被account授权</li>
+<li><code>function getData(uint256 tokenId) public view virtual returns (address owner, uint32 fuses, uint64 expiry)</code> 获取tokenId的数据(owner、fuse、过期时间)</li>
+<li><code>function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes memory data) public virtual override</code> 安全转账</li>
+<li><code>function safeBatchTransferFrom(address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data) public virtual override</code> 安全批量转账</li>
+<li><code>function _setData(uint256 tokenId, address owner, uint32 fuses, uint64 expiry) internal virtual</code> 设置tokenId的owner和fuse</li>
+<li><code>function _beforeTransfer(uint256 id, uint32 fuses, uint64 expiry) internal virtual;</code> 在转账之前进行一系列的检查</li>
+<li><code>function _clearOwnerAndFuses(address owner, uint32 fuses, uint64 expiry) internal virtual returns (address, uint32);</code> 清空owner和fuse</li>
+<li><code>function _mint(bytes32 node, address owner, uint32 fuses, uint64 expiry) internal virtual</code> 设置node的owner、fuse、过期时间</li>
+<li><code>function _burn(uint256 tokenId) internal virtual</code> 销毁tokenId的授权地址、owner、fuse、过期时间</li>
+<li><code>function _transfer(address from, address to, uint256 id, uint256 amount, bytes memory data) internal</code> 为 ENS 注册表中的name设置记录</li>
+<li><code>function _doSafeTransferAcceptanceCheck(address operator, address from, address to, uint256 id, uint256 amount, bytes memory data) private</code> 在安全转账时进行验收检查</li>
+<li><code>function _doSafeBatchTransferAcceptanceCheck(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data) private</code> 在安全批量转账时进行验收检查</li>
+<li><code>function _approve(address to, uint256 tokenId) internal virtual</code> 授权</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IMetadataService.sol 元数据服务接口规范</p>
+<ul>
+<li>function<ul>
+<li><code>function uri(uint256) external view returns (string memory);</code> 返回uri</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>INameWrapper.sol 域名封装接口规范</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">uint32 constantCANNOT_UNWRAP= 1;</span><br><span class="line">uint32 constantCANNOT_BURN_FUSES= 2;</span><br><span class="line">uint32 constantCANNOT_TRANSFER= 4;</span><br><span class="line">uint32 constantCANNOT_SET_RESOLVER= 8;</span><br><span class="line">uint32 constantCANNOT_SET_TTL= 16;</span><br><span class="line">uint32 constantCANNOT_CREATE_SUBDOMAIN= 32;</span><br><span class="line">uint32 constantCANNOT_APPROVE= 64;</span><br><span class="line">// 保留从bit 17到bit 32的父fuse</span><br><span class="line">uint32 constantPARENT_CANNOT_CONTROL= 1 &lt;&lt; 16; </span><br><span class="line">uint32 constantIS_DOT_ETH= 1 &lt;&lt; 17;</span><br><span class="line">uint32 constantCAN_EXTEND_EXPIRY= 1 &lt;&lt; 18;</span><br><span class="line">uint32 constantCAN_DO_EVERYTHING= 0;</span><br><span class="line">uint32 constantPARENT_CONTROLLED_FUSES= 0xFFFF0000;</span><br><span class="line">// 除IS_DOT_ETH以外的所有fuse</span><br><span class="line">uint32 constantUSER_SETTABLE_FUSES= 0xFFFDFFFF;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>event</p>
+<ul>
+<li><code>event NameWrapped(bytes32 indexed node, bytes name, address owner, uint32 fuses, uint64 expiry);</code> 域名封装</li>
+<li><code>event NameUnwrapped(bytes32 indexed node, address owner);</code> 域名未封装</li>
+<li><code>event FusesSet(bytes32 indexed node, uint32 fuses);</code> 设置fuse</li>
+<li><code>event ExpiryExtended(bytes32 indexed node, uint64 expiry);</code> 延长过期时间</li>
+</ul>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function ens() external view returns (ENS);</code> 返回ENS地址</li>
+<li><code>function registrar() external view returns (IBaseRegistrar);</code> 返回注册者地址</li>
+<li><code>function metadataService() external view returns (IMetadataService);</code> 返回元数据服务地址</li>
+<li><code>function names(bytes32) external view returns (bytes memory);</code> 获取names</li>
+<li><code>function name() external view returns (string memory);</code> 获取name</li>
+<li><code>function upgradeContract() external view returns (INameWrapperUpgrade);</code> 获取升级合约</li>
+<li><code>function supportsInterface(bytes4 interfaceID) external view returns (bool);</code> ERC165</li>
+<li><code>function wrap(bytes calldata name, address wrappedOwner, address resolver) external;</code> 包装任何类型的非 .eth 域，可以是 DNSSEC 名称如 vitalik.xyz 或子域名</li>
+<li><code>function wrapETH2LD(string calldata label, address wrappedOwner, uint16 ownerControlledFuses, address resolver) external returns (uint64 expires);</code> 封装 .eth 域名，创建一个新代币并将原始 ERC721 代币发送到此合约</li>
+<li><code>function registerAndWrapETH2LD(string calldata label, address wrappedOwner, uint256 duration, address resolver, uint16 ownerControlledFuses) external returns (uint256 registrarExpiry);</code>  注册一个新的 .eth 二级域名并将其包装</li>
+<li><code>function renew(uint256 labelHash, uint256 duration) external returns (uint256 expires);</code> 续费 .eth 二级域名</li>
+<li><code>function unwrap(bytes32 node, bytes32 label, address owner) external;</code> 解开 .eth 域名的封装，例如 Vitalik.eth</li>
+<li><code>function unwrapETH2LD(bytes32 label, address newRegistrant, address newController) external;</code> 解开 .eth 域名的封装，例如 Vitalik.eth</li>
+<li><code>function upgrade(bytes calldata name, bytes calldata extraData) external;</code> 升级任何类型的域名。可以是 .eth 名称 vitalik.eth、DNSSEC 名称 vitalik.xyz 或子域名</li>
+<li><code>function setFuses(bytes32 node, uint16 ownerControlledFuses) external returns (uint32 newFuses);</code> 设置node (namehash)的fuse</li>
+<li><code>function setChildFuses(bytes32 parentNode, bytes32 labelhash, uint32 fuses, uint64 expiry) external;</code> 设置你拥有的父项的name的fuse</li>
+<li><code>function setSubnodeRecord(bytes32 node, string calldata label, address owner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) external returns (bytes32);</code> 通过记录设置注册表中的子域名拥有者，然后包装子域名</li>
+<li><code>function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external;</code> 为 ENS 注册表中的name设置记录</li>
+<li><code>function setSubnodeOwner(bytes32 node, string calldata label, address newOwner, uint32 fuses, uint64 expiry) external returns (bytes32);</code> 在注册表中设置子域名拥有者，然后包装子域名</li>
+<li><code>function extendExpiry(bytes32 node, bytes32 labelhash, uint64 expiry) external returns (uint64);</code> 延长name的过期时间</li>
+<li><code>function canModifyName(bytes32 node, address addr) external view returns (bool);</code> 判断addr是否为node的拥有者或操作者</li>
+<li><code>function setResolver(bytes32 node, address resolver) external;</code> 在注册表中设置解析器合约</li>
+<li><code>function setTTL(bytes32 node, uint64 ttl) external;</code> 在注册表中设置TTL</li>
+<li><code>function ownerOf(uint256 id) external view returns (address owner);</code> 返回id(name)的拥有者</li>
+<li><code>function approve(address to, uint256 tokenId) external;</code> 授权tokenId的操作者</li>
+<li><code>function getApproved(uint256 tokenId) external view returns (address);</code> 返回id(name)的授权操作者</li>
+<li><code>function getData(uint256 id) external view returns (address, uint32, uint64);</code> 返回id的数据(owner、fuse、过期时间）</li>
+<li><code>function setMetadataService(IMetadataService _metadataService) external;</code> 设置元数据服务地址</li>
+<li><code>function uri(uint256 tokenId) external view returns (string memory);</code> 返回元数据uri</li>
+<li><code>function setUpgradeContract(INameWrapperUpgrade _upgradeAddress) external;</code> 设置合约的升级合约</li>
+<li><code>function allFusesBurned(bytes32 node, uint32 fuseMask) external view returns (bool);</code> 检查mask中node的所有fuse是否已销毁</li>
+<li><code>function isWrapped(bytes32) external view returns (bool);</code> 检查node对应name是否已封装</li>
+<li><code>function isWrapped(bytes32, bytes32) external view returns (bool);</code> 检查node对应name是否以更节省gas的方式封装</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>INameWrapperUpgrade.sol 域名封装升级接口规范</strong></p>
+<ul>
+<li>function<ul>
+<li><code>function wrapFromUpgrade(bytes calldata name, address wrappedOwner, uint32 fuses, uint64 expiry, address approved, bytes calldata extraData) external;</code> 封装升级</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>NameWrapper.sol 继承实现ERC1155Fuse、INameWrapper、Controllable、IERC721Receiver、ERC20Recoverable、ReverseClaimer的合约</strong><br>  <strong>(此合约个人研究还不是很清晰，后续需回顾)</strong></p>
+<ul>
+<li><p>data struct</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ENS public immutable ens;</span><br><span class="line">IBaseRegistrar public immutable registrar;</span><br><span class="line">IMetadataService public metadataService;</span><br><span class="line">mapping(bytes32 =&gt; bytes) public names;</span><br><span class="line">string public constantname= &quot;NameWrapper&quot;;</span><br><span class="line"></span><br><span class="line">uint64 private constantGRACE_PERIOD= 90 days;</span><br><span class="line">bytes32 private constantETH_NODE=</span><br><span class="line">    0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;</span><br><span class="line">bytes32 private constantETH_LABELHASH=</span><br><span class="line">    0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0;</span><br><span class="line">bytes32 private constantROOT_NODE=</span><br><span class="line">    0x0000000000000000000000000000000000000000000000000000000000000000;</span><br><span class="line"></span><br><span class="line">INameWrapperUpgrade public upgradeContract;</span><br><span class="line">uint64 private constantMAX_EXPIRY= type(uint64).max;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>modifier</p>
+<ul>
+<li><code>modifier onlyTokenOwner(bytes32 node)</code> 检查调用者是否是拥有者或操作者</li>
+<li><code>modifier operationAllowed(bytes32 node, uint32 fuseMask)</code> 仅当指定的fuse均未烧毁时，才允许操作。</li>
+</ul>
+</li>
+<li><p>constructord</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">constructor(</span><br><span class="line">    ENS _ens,</span><br><span class="line">    IBaseRegistrar _registrar,</span><br><span class="line">    IMetadataService _metadataService</span><br><span class="line">) ReverseClaimer(_ens, msg.sender) &#123;</span><br><span class="line">    ens = _ens;</span><br><span class="line">    registrar = _registrar;</span><br><span class="line">    metadataService = _metadataService;</span><br><span class="line"></span><br><span class="line">    // 烧毁ROOT_NODE和ETH_NODE的PARENT_CANNOT_CONTROL和CANNOT_UNWRAP fuse，并将他们的有效期设置为最大值</span><br><span class="line"></span><br><span class="line">    _setData(</span><br><span class="line">        uint256(ETH_NODE),</span><br><span class="line">        address(0),</span><br><span class="line">        uint32(PARENT_CANNOT_CONTROL | CANNOT_UNWRAP),</span><br><span class="line">        MAX_EXPIRY</span><br><span class="line">    );</span><br><span class="line">    _setData(</span><br><span class="line">        uint256(ROOT_NODE),</span><br><span class="line">        address(0),</span><br><span class="line">        uint32(PARENT_CANNOT_CONTROL | CANNOT_UNWRAP),</span><br><span class="line">        MAX_EXPIRY</span><br><span class="line">    );</span><br><span class="line">    names[ROOT_NODE] = &quot;\x00&quot;;</span><br><span class="line">    names[ETH_NODE] = &quot;\x03eth\x00&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>function</p>
+<ul>
+<li><code>function supportsInterface(bytes4 interfaceId) public view virtual override(ERC1155Fuse, INameWrapper) returns (bool)</code> ERC165</li>
+<li><code>function ownerOf(uint256 id) public view override(ERC1155Fuse, INameWrapper) returns (address owner)</code> 返回id(name)的拥有者</li>
+<li><code>function getApproved(uint256 id) public view override(ERC1155Fuse, INameWrapper) returns (address operator)</code> 返回id(name)的授权操作者</li>
+<li><code>function approve(address to, uint256 tokenId) public override(ERC1155Fuse, INameWrapper)</code> 授权tokenId的操作者</li>
+<li><code>function getData(uint256 id) public view override(ERC1155Fuse, INameWrapper) returns (address owner, uint32 fuses, uint64 expiry)</code> 返回id的数据(owner、fuse、过期时间）</li>
+<li><code>function setMetadataService(IMetadataService _metadataService) public onlyOwner</code> 设置元数据服务地址</li>
+<li><code>function uri(uint256 tokenId) public view override(INameWrapper, IERC1155MetadataURI) returns (string memory)</code> 返回元数据uri</li>
+<li><code>function setUpgradeContract(INameWrapperUpgrade _upgradeAddress) public onlyOwner</code> 设置合约的升级合约</li>
+<li><code>function canModifyName(bytes32 node, address addr) public view returns (bool)</code> 判断addr是否为node的拥有者或操作者</li>
+<li><code>function canExtendSubnames(bytes32 node, address addr) public view returns (bool)</code> 判断addr是否为node的拥有者&#x2F;操作者或被拥有者授权</li>
+<li><code>function wrapETH2LD(string calldata label, address wrappedOwner, uint16 ownerControlledFuses, address resolver) public returns (uint64 expiry)</code> 封装 .eth 域名，创建一个新代币并将原始 ERC721 代币发送到此合约</li>
+<li><code>function registerAndWrapETH2LD(string calldata label, address wrappedOwner, uint256 duration, address resolver, uint16 ownerControlledFuses) external onlyController returns (uint256 registrarExpiry)</code> 注册一个新的 .eth 二级域名并将其包装</li>
+<li><code>function renew(uint256 tokenId, uint256 duration) external onlyController returns (uint256 expires)</code> 续费 .eth 二级域名</li>
+<li><code>function wrap(bytes calldata name, address wrappedOwner, address resolver) public</code> 包装任何类型的非 .eth 域，可以是 DNSSEC 名称如 vitalik.xyz 或子域名</li>
+<li><code>function unwrapETH2LD(bytes32 labelhash, address registrant, address controller) public onlyTokenOwner(_makeNode(ETH_NODE, labelhash))</code> 解开 .eth 域名的封装，例如 Vitalik.eth</li>
+<li><code>function unwrap(bytes32 parentNode, bytes32 labelhash, address controller) public onlyTokenOwner(_makeNode(parentNode, labelhash))</code> 解开任何类型的非 .eth 域的封装，可以是 DNSSEC 名称 vitalik.xyz 或子域名</li>
+<li><code>function setFuses(bytes32 node, uint16 ownerControlledFuses) public onlyTokenOwner(node) operationAllowed(node, CANNOT_BURN_FUSES) returns (uint32)</code> 设置node (namehash)的fuse</li>
+<li><code>function extendExpiry(bytes32 parentNode, bytes32 labelhash, uint64 expiry) public returns (uint64)</code> 延长name的过期时间</li>
+<li><code>function upgrade(bytes calldata name, bytes calldata extraData) public</code> 升级任何类型的域名。可以是 .eth 名称 vitalik.eth、DNSSEC 名称 vitalik.xyz 或子域名</li>
+<li><code>function setChildFuses(bytes32 parentNode, bytes32 labelhash, uint32 fuses, uint64 expiry) public</code> 设置你拥有的父项的name的fuse</li>
+<li><code>function setSubnodeOwner(bytes32 parentNode, string calldata label, address owner, uint32 fuses, uint64 expiry) public onlyTokenOwner(parentNode) returns (bytes32 node)</code> 在注册表中设置子域名拥有者，然后包装子域名</li>
+<li><code>function setSubnodeRecord(bytes32 parentNode, string memory label, address owner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) public onlyTokenOwner(parentNode) returns (bytes32 node)</code> 通过记录设置注册表中的子域名拥有者，然后包装子域名</li>
+<li><code>function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) public onlyTokenOwner(node) operationAllowed(node, CANNOT_TRANSFER | CANNOT_SET_RESOLVER | CANNOT_SET_TTL)</code>  为 ENS 注册表中的name设置记录</li>
+<li><code>function setResolver(bytes32 node, address resolver) public onlyTokenOwner(node) operationAllowed(node, CANNOT_SET_RESOLVER)</code> 在注册表中设置解析器合约</li>
+<li><code>function setTTL(bytes32 node, uint64 ttl) public onlyTokenOwner(node) operationAllowed(node, CANNOT_SET_TTL)</code> 在注册表中设置TTL</li>
+<li><code>function _checkCanCallSetSubnodeOwner(bytes32 parentNode, bytes32 subnode) internal view</code> 检查name是否可以调用 set子节点所有者集子节点记录</li>
+<li><code>function allFusesBurned(bytes32 node, uint32 fuseMask) public view returns (bool)</code> 检查mask中node的所有fuse是否已销毁</li>
+<li><code>function isWrapped(bytes32 node) public view returns (bool)</code> 检查node对应name是否已封装</li>
+<li><code>function isWrapped(bytes32 parentNode, bytes32 labelhash) public view returns (bool)</code> 检查node对应name是否以更节省gas的方式封装</li>
+<li><code>function onERC721Received(address to, address, uint256 tokenId, bytes calldata data) public returns (bytes4)</code> 在 ERC721 代币的转移过程中，返回一个特定的值以表示接收方已经成功接收了代币</li>
+<li><code>function _beforeTransfer(uint256 id, uint32 fuses, uint64 expiry) internal override</code> 在转账之前进行一系列的检查</li>
+<li><code>function _clearOwnerAndFuses(address owner, uint32 fuses, uint64 expiry) internal view override returns (address, uint32)</code> 清空owner和fuse</li>
+<li><code>function _makeNode(bytes32 node, bytes32 labelhash) private pure returns (bytes32)</code> 计算encodePacked(node, labelhash)的哈希值</li>
+<li><code>function _addLabel(string memory label, bytes memory name) internal pure returns (bytes memory ret)</code> 计算encodePacked(uint8(bytes(label).length), label, name)的哈希值</li>
+<li><code>function _mint(bytes32 node, address owner, uint32 fuses, uint64 expiry) internal override</code> 设置node的owner、fuse、过期时间</li>
+<li><code>function _wrap(bytes32 node, bytes memory name, address wrappedOwner, uint32 fuses, uint64 expiry) internal</code> 设置node的wrappedOwner、fuse、过期时间</li>
+<li><code>function _storeNameAndWrap(bytes32 parentNode, bytes32 node, string memory label, address owner, uint32 fuses, uint64 expiry) internal</code> 计算encodePacked(uint8(bytes(label).length), label, names[parentNode])的哈希值并设置node的owner、fuse、过期时间</li>
+<li><code>function _saveLabel(bytes32 parentNode, bytes32 node, string memory label) internal returns (bytes memory)</code> 存储node的label</li>
+<li><code>function _updateName(bytes32 parentNode, bytes32 node, string memory label, address owner, uint32 fuses, uint64 expiry) internal</code> 更新name(encodePacked(uint8(bytes(label).length), label, names[parentNode])的哈希值)并设置node 的fuse、owner、过期时间</li>
+<li><code>function _checkParentFusesAndExpiry(bytes32 parentNode, bytes32 node, uint32 fuses, uint64 expiry) internal view returns (uint64)</code> 有堆栈限制的封装器函数</li>
+<li><code>function _checkParentFuses(bytes32 node, uint32 fuses, uint32 parentFuses) internal pure</code> 检查父fuse</li>
+<li><code>function _normaliseExpiry(uint64 expiry, uint64 oldExpiry, uint64 maxExpiry) private pure returns (uint64)</code> 确保过期时间合法(处于oldExpiry和maxExpiry之间)</li>
+<li><code>function _wrapETH2LD(string memory label, address wrappedOwner, uint32 fuses, uint64 expiry, address resolver) private</code> 解开 .eth 域名的封装，例如 Vitalik.eth</li>
+<li><code>function _unwrap(bytes32 node, address owner) private</code> 解开任何类型的非 .eth 域的封装，可以是 DNSSEC 名称 vitalik.xyz 或子域名</li>
+<li><code>function _setFuses(bytes32 node, address owner, uint32 fuses, uint64 oldExpiry, uint64 expiry) internal</code> 设置node (namehash)的fuse</li>
+<li><code>function _setData(bytes32 node, address owner, uint32 fuses, uint64 expiry) internal</code> 设置node的owner、fuse、过期时间</li>
+<li><code>function _canFusesBeBurned(bytes32 node, uint32 fuses) internal pure</code> 检查fuse能否被销毁</li>
+<li><code>function _checkFusesAreSettable(bytes32 node, uint32 fuses) internal pure</code> 检查fuse是否可设置</li>
+<li><code>function _isWrapped(bytes32 node) internal view returns (bool)</code> 检查node是否已被封装</li>
+<li><code>function _isETH2LDInGracePeriod(uint32 fuses, uint64 expiry) internal view returns (bool)</code> 检查ETH2LD是否在宽限期内</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ENS业务流程</p>
+<p>  <img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Untitled.png" alt="ENS业务流程"></p>
+<p>  特点</p>
+<ul>
+<li><p>将domain的controller和owner拆开，使得对domain的控制粒度更细致，也实现了代码之间的耦合度</p>
+</li>
+<li><p>为数不多的还支持DNS解析的域名的DID服务</p>
+</li>
+<li><p>NameWrapper的开始投入使用，将会带来更多细致的操作和丰富的功能，可阅读下方链接</p>
+<p>  <a target="_blank" rel="noopener" href="https://foresightnews.pro/article/h5Detail/23811">ENS 域名封装是什么？为何如此重要？ - Foresight News</a></p>
+</li>
+</ul>
+<p>  个人感悟</p>
+<p>  在通读ENS官方文档以及合约代码时，总体觉得其文档和合约的说明与解释还不是很清楚明了，在研究过程中有很多地方并未说明具体含义，理解的时候常常存在歧义。</p>
+<p>  不过作为第一个研究的Blockchain项目，其将操作者与拥有者拆开的思想是让我最印象深刻的一点，在此之前并未想到这方面，最开始接触到它时一直百思不得其解觉得这么做会时用户的操作更繁琐，但在后续逐渐深入的研究过程中，逐步发现了该做法的巧妙之处，既可以让代码写的更简单易懂，也可以让domain的拥有者拥有更多操作的可能性。</p>
+<p>  故通过研究文档及合约，收获颇多。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://DestinyWei.github.io">浩烬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://destinywei.github.io/post/BlockChainNote.html">https://destinywei.github.io/post/BlockChainNote.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://DestinyWei.github.io" target="_blank">浩烬的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DID/">DID</a></div><div class="post_share"><div class="social-share" data-image="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/ENS.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/post/Introduction.html"><img class="prev-cover" src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/default-cover2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">写给各位看官老爷</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/头像3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">浩烬</div><div class="author-info__description">坚持就是胜利</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/DestinyWei"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/DestinyWei" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1342348280@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的Blog频道，若有疑问，请联系我的QQ：1342348280</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ENS-Domains-Product-Design-Analyses"><span class="toc-number">1.</span> <span class="toc-text">ENS Domains Product Design Analyses</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/BlockChainNote.html" title="北京大学肖臻老师《区块链技术与应用》公开课"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/区块链.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="北京大学肖臻老师《区块链技术与应用》公开课"/></a><div class="content"><a class="title" href="/post/BlockChainNote.html" title="北京大学肖臻老师《区块链技术与应用》公开课">北京大学肖臻老师《区块链技术与应用》公开课</a><time datetime="2023-04-10T11:17:41.356Z" title="发表于 2023-04-10 19:17:41">2023-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%E7%A0%B4%E8%A7%A3.html" title="有道翻译简单爬虫破解"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/blog-picture.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有道翻译简单爬虫破解"/></a><div class="content"><a class="title" href="/post/%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%E7%A0%B4%E8%A7%A3.html" title="有道翻译简单爬虫破解">有道翻译简单爬虫破解</a><time datetime="2023-04-10T11:17:41.354Z" title="发表于 2023-04-10 19:17:41">2023-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/solidity%E8%BF%9B%E9%98%B6.html" title="Solidity学习笔记(二)"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Solidity进阶.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Solidity学习笔记(二)"/></a><div class="content"><a class="title" href="/post/solidity%E8%BF%9B%E9%98%B6.html" title="Solidity学习笔记(二)">Solidity学习笔记(二)</a><time datetime="2023-04-10T11:17:41.354Z" title="发表于 2023-04-10 19:17:41">2023-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Solidity%E5%85%A5%E9%97%A8.html" title="Solidity学习笔记(一)"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Solidity入门.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Solidity学习笔记(一)"/></a><div class="content"><a class="title" href="/post/Solidity%E5%85%A5%E9%97%A8.html" title="Solidity学习笔记(一)">Solidity学习笔记(一)</a><time datetime="2023-04-10T11:17:41.353Z" title="发表于 2023-04-10 19:17:41">2023-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Mysql%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.html" title="Mysql安装以及环境变量配置"><img src="https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/Mysql.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mysql安装以及环境变量配置"/></a><div class="content"><a class="title" href="/post/Mysql%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.html" title="Mysql安装以及环境变量配置">Mysql安装以及环境变量配置</a><time datetime="2023-04-10T11:17:41.352Z" title="发表于 2023-04-10 19:17:41">2023-04-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://weihaoming-tuchuang.oss-cn-chengdu.aliyuncs.com/img/ENS.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 <i id="heartbeat" class="fa fas fa-heartbeat"></i>  浩烬</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>! <div> <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo2.png" width="30px" height="15px" /> 提供CDN加速/云存储服务</a> </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
